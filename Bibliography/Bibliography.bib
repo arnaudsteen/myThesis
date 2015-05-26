@@ -13,7 +13,7 @@
   url = {http://www.sciencedirect.com/science/article/pii/S0168900203013688}
 }
 @ARTICLE{geant4_parton,
-  author = {G. Folger, J.P. Wellisch},
+  author = {G. Folger and J.P. Wellisch},
   title = {String {Parton} {Models} in {Geant4}},
   year = {2003},
   archiveprefix = {arXiv},
@@ -30,7 +30,7 @@
   url = {http://geant4.web.cern.ch/geant4/UserDocumentation/UsersGuides/PhysicsReferenceManual/fo/PhysicsReferenceManual.pdf},
 }
 @ARTICLE{geant4_bertini,
-  author = {A. Heikkinen, N. Stepanov , J.P. Wellisch},
+  author = {A. Heikkinen and N. Stepanov and J.P. Wellisch},
   title = {Bertini intra-nuclear cascade implementation in {Geant4}},
   year = {2003},
   archiveprefix = {arXiv},
@@ -70,23 +70,93 @@
   url={http://dx.doi.org/10.1007/s12043-007-0237-8},
   publisher={Springer-Verlag},
   keywords={Linear collider; simulation; software tools; event reconstruction; particle flow; 07.05.Kf; 07.05.Tp; 29.40.Vj; 29.85.+c},
-  author={Wendt, O. and Gaede, F. and Krämer, T.},
+  author={O. Wendt and F. Gaede and T. Krämer},
   pages={1109-1114},
   language={English}
 }
 
-@electronic{ilcsoft,
+@misc{ilcsoft,
+  key = {ILCSoft},
   title = {ILCSoft homepage},
   howpublished = {\url{http://ilcsoft.desy.de}}
   %note = {Accessed: 2010-09-30}
 }
-%@ARTICLE{geant4_fritiof,
-%  author = {V. Uzhinsky},
-%  title = {Tuning of the {GEANT4} {FRITIOF} ({FTF}) {Model} {Using} {NA61/SHINE} {Experimental} {Data}},
-%  year = {2011},
-%  archiveprefix = {arXiv},
-%  collaboration = {GEANT4},
-%  eprint = {1109.6768},
-%  primaryclass = {hep-ph},
-%  url = {http://arxiv.org/abs/1109.6768}
-%}
+
+@ARTICLE{abbresciaPolya,
+  author = {M. Abbrescia and al},
+  title = {The simulation of resistive plate chambers in avalanche mode: charge
+	spectra and efficiency},
+  journal = {Nuclear Instruments and Methods in Physics Research Section A: Accelerators,
+	Spectrometers, Detectors and Associated Equipment},
+  year = {1999},
+  volume = {431},
+  pages = {413 - 427},
+  number = {3},
+  doi = {DOI: 10.1016/S0168-9002(99)00374-5},
+  issn = {0168-9002},
+  url = {http://www.sciencedirect.com/science/article/B6TJM-3WYHWDP-4/2/f05cca7f1165f235e8fc1e763c263a97}
+}
+@PHDTHESIS{kieffer,
+  author = {R.Kieffer},
+  title = {Caract\'erisation d'un calorim\`etre hadronique semi-digital pour le futur collisionneur ILC},
+  school = {Universit\'ee Claude Bernard Lyon-1},
+  year = {2011},
+  %owner = {kieffer},
+  %timestamp = {2011.07.07}
+}
+@article{riegler,
+title = "Detector physics and simulation of resistive plate chambers ",
+journal = "Nuclear Instruments and Methods in Physics Research Section A: Accelerators, Spectrometers, Detectors and Associated Equipment ",
+volume = "500",
+number = "1–3",
+pages = "144 - 162",
+year = "2003",
+note = "\{NIMA\} Vol 500 ",
+issn = "0168-9002",
+doi = "http://dx.doi.org/10.1016/S0168-9002(03)00337-1",
+url = "http://www.sciencedirect.com/science/article/pii/S0168900203003371",
+author = "Werner Riegler and Christian Lippmann and Rob Veenhof",
+keywords = "\{RPC\}",
+keywords = "Simulation",
+keywords = "Signals",
+keywords = "Detector physics",
+keywords = "Timing",
+keywords = "Efficiency ",
+abstract = "We present a simulation model suited to study efficiency, timing and pulse-height spectra of Resistive Plate Chambers. After discussing the details of primary ionisation, avalanche multiplication, signal induction and frontend electronics, we apply the model to timing \{RPCs\} with time resolution down to 50&#xa0;ps and trigger \{RPCs\} with time resolution of about 1&#xa0;ns. "
+}
+
+@article{cms,
+      author         = "Chatrchyan, S. and others",
+      title          = "{The CMS experiment at the CERN LHC}",
+      collaboration  = "CMS",
+      journal        = "JINST",
+      volume         = "3",
+      pages          = "S08004",
+      doi            = "10.1088/1748-0221/3/08/S08004",
+      year           = "2008",
+      SLACcitation   = "%%CITATION = JINST,3,S08004;%%",
+}
+
+@article{atlas,
+      author         = "Aad, G. and others",
+      title          = "{The ATLAS Experiment at the CERN Large Hadron Collider}",
+      collaboration  = "ATLAS",
+      journal        = "JINST",
+      volume         = "3",
+      pages          = "S08003",
+      doi            = "10.1088/1748-0221/3/08/S08003",
+      year           = "2008",
+      SLACcitation   = "%%CITATION = JINST,3,S08003;%%",
+}
+
+@INPROCEEDINGS{omega,
+author={Callier, S. and Dulucq, F. and De La Taille, C. and Martin-Chassard, G. and Seguin-Moreau, N. and Gaglione, R. and Laktineh, I. and Mathez, H. and Boudry, V. and Brient, J.C. and Jauffret, C.},
+booktitle={Nuclear Science Symposium Conference Record, 2007. NSS '07. IEEE},
+title={HARDROC1, readout chip of the Digital HAdronic CALorimeter of ILC},
+year={2007},
+month={Oct},
+volume={3},
+pages={1851-1856},
+keywords={application specific integrated circuits;digital storage;digital-analogue conversion;discriminators;nuclear electronics;particle calorimetry;position sensitive particle detectors;preamplifiers;readout electronics;10 bit-DAC;ASIC integrates;GEM;HARDROC1;ILC;RPC;SiGe;digital hadronic calorimeter;digital memory;discriminators;preamplifier;readout chip;Application specific integrated circuits;Counting circuits;DH-HEMTs;Detectors;Energy consumption;Gain;Germanium silicon alloys;Impedance;Preamplifiers;Silicon germanium},
+doi={10.1109/NSSMIC.2007.4436518},
+ISSN={1095-7863},}
