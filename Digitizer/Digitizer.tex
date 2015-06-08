@@ -1,4 +1,5 @@
 \chapter{Simulation du SDHCAL}
+\label{chap.simulation}
 La simulation est un aspect très important dans les expériences de physique des particules. En effet, la conception et l'optimisation d'un détecteur s'appuient toujours sur la simulation qui va permettre une estimation rapide des performances, des coûts de l'expérience. Les simulations sont aussi massivement utilisées dans l'analyse des données pour améliorer les algorithmes d'analyses, pour confirmer ou non la présences de nouvelle physique, pour estimer les biais... C'est pourquoi avoir une simulation la plus réaliste possible est un enjeu très importants. Dans ce chapitre, nous présenterons les modèles utilisés pour la simulation des gerbes hadroniques. Puis nous détaillerons la simulation du prototype SDHCAL et nous expliquerons les différentes étapes de la modélisation de la réponse des GRPC aux particules chargées. Enfin quelques des comparaisons entre les données et la simulation seront présentées. 
 \minitoc
 \newpage
@@ -231,34 +232,7 @@ La figure~\ref{fig.mul_vs_theta}(b) montre un bon accord entre les données et l
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Paramétrisation des seuils}
-Pour régler les trois seuils des GRPCs, un convertisseur digital-analogique (DAC), encodé sur 10 bits (de 0 à 1023), est utilisé pour chaque seuil. Les facteurs de conversion donnant le valeur du seuil sur la charge induite à partir de la valeur de DAC sont nécessaires pour la simulation. Un dispositif permet de d'injecter une charge donnée sur les 64 canaux des ASICs. Ce dispositif permet d'effectuer un scan sur la charge injectée. Pour chaque valeur de charge injectée, la valeur du seuil de basculement qui correspond à la valeur de DAC pour laquelle l'efficacité de détection est égale à 50\%, est mesurée \cite{kieffer}. Les courbes de ces valeurs en fonction de la charge injectée sont construites pour chaque canal des ASICs, pour chaque seuil. La figure~\ref{dac-vs-inj} montre un exemple de ces courbes pour les 64 canaux d'un ASIC, pour le premier seuils. La valeur du piedestal a été précédement soustraite pour la construction de ces courbes. La méthode pour extraire les valeurs des piedestaux pour chaque seuil est décrite dans \cite{kieffer}.
-\begin{figure}[!ht]
-  \centering
-  \includegraphics[width=.8\textwidth]{Digitizer/figs/Dac0Lin.pdf}
-  \caption{Seuil de basculement pour le premier seuil ($DAC_0$) en fonction de la charge injectée pour les 64 canaux d'un ASIC. La valeur du piedestal a été précédement soustraite.}
-  \label{dac-vs-inj}
-\end{figure}
-Les courbes de la figure~\ref{dac-vs-inj} sont ajustées avec une droite. Finalement l'équation suivante permet d'obtenir la valeur du seuil en fonction de la valeur de DAC pour chaque seuil:
-\begin{equation}
-  seuil_i = \frac{DAC_i-p_i}{\lambda_i} [pC]
-  \label{eq.dacConversion}
-\end{equation}
-où les coefficients $\lambda_i$ sont les valeurs moyennes des coefficents directeurs des droites obtenus après les ajustements linéaires et $p_i$ les valeurs des piedestaux.
-Le tableau~\ref{tab.lambdas} présente les valeurs des facteurs de conversion et des piedestaux pour chaque seuil.
-\begin{table}[!ht]
-  \begin{center}
-    \begin{tabular}{c|c|c}
-      Seuil & $\lambda~[pC^{-1}]$ & Piedestal\\
-      \hline
-      1 & 700.0 & 90\\
-      2 & 80.0 & 98\\
-      3 & 16.3 & 98
-    \end{tabular}
-  \end{center}  
-  \caption{Facteur de conversion et valeur des piedestaux pour chaque seuil.}
-  \label{tab.lambdas}
-\end{table}
-Cependant, il n'était pas possible de réaliser les mesures des piedestaux et des facteurs de conversion avec les détecteurs complets. Ainsi, il est probable que ces valeurs soient légèrement différentes pour le prototype. Ceci donne un peu de liberté pour régler les seuils dans la simulation. La figure~\ref{fig.thrScan}(b) montre qu'une faible variation du premier seuil ($seuil\in[0.1,0.4]~pC$) a des conséquences négligeable sur l'efficacité ($\varepsilon\in[0.94,0.95]$). Ainsi, la valeur du premier seuil utilisé dans la simulation est calculé avec l'équation~\ref{eq.dacConversion}. Pour régler la valeur des seuils supérieur, nous avons de nouveau réalisé une étude d'efficacité. La même méthode décrite dans la partie~\ref{sec.polya} est utilisé pour déterminer si un plan est efficace. Lorsqu'un plan est efficace, il est aussi considéré comme efficace pour les seuils 2 et/ou 3 si au moins un coups ayant passé ces seuils sont trouvés dans le groupe de coups correspondant. Les seuils 2 et 3 sont alors régler pour reproduire les efficacités des données expérimentales. 
+Nous avons vu dans la setion~\ref{sec.sdhcal_thr} du chapitre~\ref{chap.sdhcal} comment les seuils étaient réglés dans le prototype. Cependant comme ces travaux n'ont pas pu être effectuer avec des détecteurs complet, il est probable que les valeurs de conversion (entre DAC et valeurs de seuil en $pC$) soient légèrement différentes pour le prototype. Ceci donne un peu de liberté pour régler les seuils dans la simulation. La figure~\ref{fig.thrScan}(b) montre qu'une faible variation du premier seuil ($seuil\in[0.1,0.4]~pC$) a des conséquences négligeable sur l'efficacité ($\varepsilon\in[0.94,0.95]$). Ainsi, la valeur du premier seuil utilisé dans la simulation est calculé avec l'équation~\ref{eq.dacConversion}. Pour régler la valeur des seuils supérieur, nous avons de nouveau réalisé une étude d'efficacité. La même méthode décrite dans la partie~\ref{sec.polya} est utilisé pour déterminer si un plan est efficace. Lorsqu'un plan est efficace, il est aussi considéré comme efficace pour les seuils 2 et/ou 3 si au moins un coups ayant passé ces seuils sont trouvés dans le groupe de coups correspondant. Les seuils 2 et 3 sont alors régler pour reproduire les efficacités des données expérimentales. 
 \begin{figure}[!ht]
   \subfigure[]{\includegraphics[width=.5\textwidth]{Digitizer/figs/eff2Layer.pdf}}
   \subfigure[]{\includegraphics[width=.5\textwidth]{Digitizer/figs/eff3Layer.pdf}}
