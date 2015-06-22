@@ -1,0 +1,76 @@
+\chapter{Topologie des gerbes hadroniques}
+\label{chap.topo}
+Dans le chapitre précédent, nous avons observé des désacords sur le nombre de coups entre les données expérimentales et la simulation des gerbes hadroniques. L'étude de la topologie des cascades est nécessaire pour comprendre ces différences. Dans ce chapitre, plusieurs variables topologiques sont étudiées pour différentes listes physiques. Les mêmes vaiables sont aussi analyser dans le cas des gerbes électromagnétiques, toujours dans le but de vérifier et de valider la modélisation de la réponse de GRPCs. L'étude des groupes de coups permeterra d'étudier la réponse du SDHCAL aux gerbes hadroniques en éliminant des erreurs potentiellement introduites lors de la modélisation de la réponse de GRPC aux particules chargées (cf. section~\ref{sec.digit-algo} cu chapitre\ref{chap.simulation}). Les profiles longitudinale et latérale indiqueront dans quelles parties des cascades, les modèles de GEANT4 semblent sous-estimer le nombre de coups des gerbes hadroniques. Dans les chapitres~\ref{chap.sdhcal} et~\ref{chap.simulation}, nous avons mentionné et utilisé les traces reconstruites par la méthode de Transformée de Hough pour sélectionner les gerbes hadroniques ou électromagnétique. Cette méthode permet aussi de comparer les modèles de simulation.
+\minitoc
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Les groupes de coups}
+Pour comprendre les désacords observés entre les données et la simulation, les variables relatives au groupes de coups sont très utiles. Elles permettent de comparer la simulation avec les données de manière plus indépendante en évitant des biais potentiellement introduits par la paramétrisation de l'algorithme SimDigital (cf. chapitre~\ref{chap.simulation}). Le phénomène de multiplicité a moins d'importance lorsque les coups sont groupés. Les coups sont groupés lorsqu'ils appartiennent au même plan et lorsque leurs cellules associées sont côte à côte ($\Delta_x\leq 1~cm$ et $\Delta_y\leq 1~cm$). Pour les données expérimentales, le nombre de groupe de coups est aussi corrigé avec le temps relatif au début du cycle du faisceau en utilisant la même méthode que dans la section~\ref{sec.timeCalib} du chapitre~\ref{chap.sdhcal}. Des polynomes de degré 1 sont utilisés à la fois pour les calibrations des gerbes hadroniques et celles de gerbes électromagnétiques. Ces calibrations ont tendance à diminuer le nombre de groupes de coups avec le temps. En effet, une zone temporairement aveugle du détecteur peut créer un trou dans un groupe de coups et ainsi fragmenter ce groupe.
+\begin{figure}[!ht]
+  \includegraphics[width=.5\textwidth]{Shower/figs/ncluster_pi-_20GeV_AugSep2012.pdf}
+  \includegraphics[width=.5\textwidth]{Shower/figs/ncluster_pi-_70GeV_AugSep2012.pdf}
+  \caption{Distribution du nombre de groupes de coups pour des échantillons de pions de 20 (à gauche) et de 70 GeV (à droite). Les données sont représentées par des cercles noires et la simulation (FTFP\_BERT\_HP) par les histogrammes rouges. \label{fig.pi-cluster}}
+\end{figure}
+La figure~\ref{fig.pi-cluster} présente les distributions du nombre de groupes de coups pour les données et la simulation (FTFP\_BERT\_HP) à 20 et 70 $GeV$. Comme pour le nombre total de coups, l'accord entre donnée et simulation est raisnonnable à basse énergie et se dégrade à plus haute énergie.
+\begin{figure}[!ht]
+  \includegraphics[width=.5\textwidth]{Shower/figs/NCLUSTERPIONHP.pdf}
+  \includegraphics[width=.5\textwidth]{Shower/figs/NCLUSTERPION_MODEL.pdf}
+  \caption{Moyenne du nombre de groupes de coups pour des gerbes hadroniques en fonction de l'énergie du faisceau. Les déviations relatives sont aussi présentée. L'effet de l'utilisation du modèle de haute précision pour les neutrons est montré sur la figure de gauche. La figure de droite présente les résultats avec différentes listes physiques.}
+  \label{fig.nhit_pi-_ebeam}
+\end{figure}
+La figure~\ref{fig.nhit_pi-_ebeam} montre le nombre moyen de groupes en fonction de l'énergie du faisceau pour les donnée et plusieurs listes physiques. Les déviations relatives définis par $\frac{N_{simu}-N_{data}}{N_{data}}$, où $N_{data}$ et $N_{simu}$ sont les nombres de groupes pour les données et la simulation respectivement, sont données. L'utilisation de l'option de haute précision pour les neutrons fait légèrement diminuer le nombre de groupes reconstruits. La liste FTF\_BIC est la liste la plus proche des données expérimentales. La figure en annexe~\ref{app.cluster} montre le nombre moyen de groupe de coups en fonction de l'énergie pour des gerbes électroamagnétiques. La simulation sous-estime très légèrement le nombre de groupes par rapport aux données. La déviation relative est inférieure à 5$\%$ sur toute la gamme d'énergie. La différence des nombres moyens de groupes entre la simulation et les données est inférieur à 2 sur toute la gamme d'énergie. Cette différence vient probablement du bruit dans le prototype estimer à environ 1.75 coups par évenement physiques \cite{sdhcal-com}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Les profiles des gerbes hadroniques}
+\label{sec.Profile}
+\subsection{Profile longitudinale des gerbes hadroniques}
+\label{sec.longiProfile}
+\begin{figure}[!ht]
+  \includegraphics[width=.32\textwidth]{Shower/figs/longiProf_pi-_10GeV_ftfp_bert_hp.pdf}
+  \includegraphics[width=.32\textwidth]{Shower/figs/longiProf_pi-_10GeV_qgsp_bert_hp.pdf}
+  \includegraphics[width=.32\textwidth]{Shower/figs/longiProf_pi-_10GeV_ftf_bic.pdf}\\
+  \includegraphics[width=.32\textwidth]{Shower/figs/longiProf_pi-_30GeV_ftfp_bert_hp.pdf}
+  \includegraphics[width=.32\textwidth]{Shower/figs/longiProf_pi-_30GeV_qgsp_bert_hp.pdf}
+  \includegraphics[width=.32\textwidth]{Shower/figs/longiProf_pi-_30GeV_ftf_bic.pdf}\\
+  \includegraphics[width=.32\textwidth]{Shower/figs/longiProf_pi-_80GeV_ftfp_bert_hp.pdf}
+  \includegraphics[width=.32\textwidth]{Shower/figs/longiProf_pi-_80GeV_qgsp_bert_hp.pdf}
+  \includegraphics[width=.32\textwidth]{Shower/figs/longiProf_pi-_80GeV_ftf_bic.pdf}
+  \caption{Distribution du nombre de coups pour des échantillons de pions de 10 GeV (a), de 30 GeV(b) et de 80 GeV (d). Les données sont représentées par des croix noires et la simulation (FTFP\_BERT\_HP) par les histogrammes rouges. \label{fig.pi-nhit}}
+\end{figure}
+
+\subsection{Profile latérale des gerbes hadroniques}
+\label{sec.lateralProfile}
+\begin{figure}[!ht]
+  \includegraphics[width=.32\textwidth]{Shower/figs/radProf_pi-_10GeV_ftfp_bert_hp.pdf}
+  \includegraphics[width=.32\textwidth]{Shower/figs/radProf_pi-_10GeV_qgsp_bert_hp.pdf}
+  \includegraphics[width=.32\textwidth]{Shower/figs/radProf_pi-_10GeV_ftf_bic.pdf}  \\
+  \includegraphics[width=.32\textwidth]{Shower/figs/radProf_pi-_30GeV_ftfp_bert_hp.pdf}
+  \includegraphics[width=.32\textwidth]{Shower/figs/radProf_pi-_30GeV_qgsp_bert_hp.pdf}
+  \includegraphics[width=.32\textwidth]{Shower/figs/radProf_pi-_30GeV_ftf_bic.pdf}  \\
+  \includegraphics[width=.32\textwidth]{Shower/figs/radProf_pi-_80GeV_ftfp_bert_hp.pdf}
+  \includegraphics[width=.32\textwidth]{Shower/figs/radProf_pi-_80GeV_qgsp_bert_hp.pdf}
+  \includegraphics[width=.32\textwidth]{Shower/figs/radProf_pi-_80GeV_ftf_bic.pdf}
+  \caption{Distribution du nombre de coups pour des échantillons de pions de 10 GeV (a), de 30 GeV(b), et de 80 GeV (c). Les données sont représentées par des croix noires et la simulation (FTFP\_BERT\_HP) par les histogrammes rouges. \label{fig.pi-nhit}}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Reconstruction des traces dans les gerbes hadroniques}
+\label{sec.hough}
+\subsection{La méthode de Transformée de Hough}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+
+\chapter{}
+\label{app.cluster}
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=.5\textwidth]{Shower/figs/NCLUSTERELECTRON.pdf}
+  \caption{Moyenne du nombre de groupes de coups et déviation relative pour des gerbes électromagnétiques en fonction de l'énergie du faisceau.}
+  \label{fig.nhit_e-_ebeam}
+\end{figure}
